@@ -1,5 +1,7 @@
 use std::fs;
 
+const NUMS: [&str; 9] = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+
 /**
 *--- Day 1: Trebuchet?! ---
 
@@ -52,5 +54,39 @@ pub fn solution() {
         calibration_sum += line_num.parse::<i32>().unwrap();
     });
 
-    println!("{}", calibration_sum);
+    println!("PART ONE SOLUTION: {}", calibration_sum);
+
+    solution_part_two(&calibration_string);
+}
+
+/**
+--- Part Two ---
+
+Your calculation isn't quite right. It looks like some of the digits are actually spelled out with letters: one, two, three, four, five, six, seven, eight, and nine also count as valid "digits".
+
+Equipped with this new information, you now need to find the real first and last digit on each line. For example:
+
+two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen
+
+In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Adding these together produces 281.
+
+What is the sum of all of the calibration values?
+*/
+fn solution_part_two(calibration_string: &str) {
+    let mut calibration_sum = 0;
+
+    calibration_string.lines().for_each(|line| {
+        let mut line_num = String::new();
+        let line_components = line.split_inclusive(|ch: char| ch.is_ascii_digit());
+
+
+    });  
+
+    println!("PART ONE SOLUTION: {}", calibration_sum);
 }
